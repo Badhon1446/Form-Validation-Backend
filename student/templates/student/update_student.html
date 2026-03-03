@@ -1,0 +1,136 @@
+{%load crispy_forms_tags %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    
+    <a class="navbar-brand fw-bold" href="#">StudentApp</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+      
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url "students" %}">Students</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url "create" %}">Create</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            More
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">About</a></li>
+            <li><a class="dropdown-item" href="#">Contact</a></li>
+          </ul>
+        </li>
+
+      </ul>
+
+      <form class="d-flex me-3">
+        <input class="form-control me-2" type="search" placeholder="Search">
+        <button class="btn btn-outline-light" type="submit">Search</button>
+      </form>
+
+      <a href="#" class="btn btn-primary">Login</a>
+
+    </div>
+  </div>
+</nav>
+   <div class="container mt-5">
+    <h2 class="mb-4">Edit Student Info</h2>
+    <form method="POST" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        {{ form | crispy }}
+
+        <div class="d-flex justify-content-center mt-3 pb-5 ">
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+        </div>
+    </form>
+
+    
+    <footer class="bg-dark text-white pt-5 pb-4">
+  <div class="container text-md-left">
+    <div class="row text-md-left">
+
+      <!-- Column 1: About -->
+      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">StudentApp</h5>
+        <p>
+          This is a professional student management system. Manage your students, upload files, and track data efficiently.
+        </p>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Quick Links</h5>
+        <p><a href="#" class="text-white text-decoration-none">Home</a></p>
+        <p><a href="#" class="text-white text-decoration-none">Students</a></p>
+        <p><a href="#" class="text-white text-decoration-none">Create</a></p>
+        <p><a href="#" class="text-white text-decoration-none">Contact</a></p>
+      </div>
+
+      <!-- Column 3: Resources -->
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Resources</h5>
+        <p><a href="#" class="text-white text-decoration-none">About Us</a></p>
+        <p><a href="#" class="text-white text-decoration-none">Help</a></p>
+        <p><a href="#" class="text-white text-decoration-none">Privacy Policy</a></p>
+        <p><a href="#" class="text-white text-decoration-none">Terms of Service</a></p>
+      </div>
+
+      <!-- Column 4: Contact -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Contact</h5>
+        <p><i class="bi bi-house-fill me-2"></i> Dhaka, Bangladesh</p>
+        <p><i class="bi bi-envelope-fill me-2"></i> info@studentapp.com</p>
+        <p><i class="bi bi-telephone-fill me-2"></i> +880 123 456 789</p>
+        <p><i class="bi bi-globe me-2"></i> www.studentapp.com</p>
+      </div>
+
+    </div>
+
+    <hr class="mb-4" style="border-top: 1px solid rgba(255,255,255,0.2);">
+
+    <!-- Bottom Row -->
+    <div class="row align-items-center">
+      <div class="col-md-7 col-lg-8">
+        <p>© 2026 StudentApp. All Rights Reserved.</p>
+      </div>
+      <div class="col-md-5 col-lg-4">
+        <div class="text-center text-md-right">
+          <a href="#" class="text-white me-4"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-white me-4"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="text-white me-4"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-white me-4"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
