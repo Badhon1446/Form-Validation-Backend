@@ -27,6 +27,11 @@ def student_list(request):
 def update_student(request,id):
     student = models.Student.objects.get(id=id)
     form = forms.StudentForm(instance=student)
+    if request.method == 'POST':
+        form = forms.StudentForm(request.POST, request.FILES, instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect('students')
     return render(request, 'student/update_student.html', {'form':form})
 
 def home(request):
